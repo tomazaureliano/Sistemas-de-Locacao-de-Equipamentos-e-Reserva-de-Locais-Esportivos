@@ -1,4 +1,7 @@
 package service;
+import exceptions.CapacidadeExcedida;
+import exceptions.FuncionarioNaoAutorizado;
+import exceptions.LocalJaReservado;
 import model.Equipamento;
 import model.Funcionario;
 import model.LocalEsportivo;
@@ -14,26 +17,26 @@ public class ReservaService {
     private List<Reserva> reservas = new ArrayList<>();
     private static final long HORAS_CANCELAMENTO_LIMITE = 2;
 
-    public boolean criarReserva(Reserva novaReserva) {
+    public Reserva criarReserva(Reserva novaReserva) throws CapacidadeExcedida, LocalJaReservado, FuncionarioNaoAutorizado {
        if(novaReserva.getConvidados() > novaReserva.getLocal().getCapacidade()){
-           System.out.println("Convidados excedem capacidade");
-           return false;
+         throw new CapacidadeExcedida("capacidade de convidados excedida");
+
        }
        for(Reserva reservaExistente : reservas){
            if(reservaExistente.getLocal().equals(novaReserva.getLocal()) && reservaExistente.estaAtiva() && horariosConflitam(reservaExistente.getInicio()
                    , reservaExistente.getFim(), novaReserva.getInicio(), novaReserva.getFim())){
-               System.out.println("local ja reservado");
-               return false;
+              throw new LocalJaReservado("Local já reservado nesse horário");
+
            }
        }
 
        if(novaReserva.getFuncionario().getAutorizacao() == Funcionario.Autorizacao.NAOAUTORIZADO){
-           System.out.println("Funcionario não autorizado");
-           return false;
+           throw new FuncionarioNaoAutorizado("funcionario nao autorizado");
+
        }
         reservas.add(novaReserva);
         System.out.println("Reserva Criada");
-        return true;
+        return novaReserva;
 
     }
 

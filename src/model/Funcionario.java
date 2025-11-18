@@ -11,7 +11,7 @@ public class Funcionario {
     public Funcionario(String nome, String cpf, Autorizacao autorizacao) {
         this.nome = nome;
         this.cpf = cpf;
-        this.autorizacao = autorizacao;
+        this.autorizacao = Autorizacao.AUTORIZADO;
     }
     public String getNome() {
         return nome;
