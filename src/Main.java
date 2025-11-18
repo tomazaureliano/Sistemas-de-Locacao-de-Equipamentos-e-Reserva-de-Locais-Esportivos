@@ -80,6 +80,8 @@ public class Main {
 
         relatorioService.gerarPdfLocaisMaisUsados(LocalDateTime.now(), LocalDateTime.now().plusDays(6), "relatorio.pdf");
         relatorioService.gerarPdfHistoricoCliente("123.456.789-00", "Historico_Cliente_123.pdf");
+        //relatorios em pdf  implementados.
+        //finalizado!
     }
 
 
