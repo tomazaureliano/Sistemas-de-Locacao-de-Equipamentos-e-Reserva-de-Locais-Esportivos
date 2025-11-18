@@ -4,8 +4,11 @@ import model.*;
 import service.ReservaService;
 import service.LocacaoService;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class RelatorioService {
     private ReservaService reservaService;
@@ -98,6 +101,98 @@ public class RelatorioService {
 
         return locacoes;
     }
+    public void relatorioEquipamentosMaisUsados(LocalDateTime inicio, LocalDateTime fim) {
+
+        System.out.println("\n===== RELATÓRIO DE EQUIPAMENTOS USADOS =====");
+        System.out.println("Período: " + inicio + " até " + fim);
+
+        // 1. Filtrar locações no período
+        List<Locacao> locacoesPeriodo = locacaoService.getLocacoes().stream()
+                .filter(l -> !l.getInicio().isAfter(fim) && !l.getFim().isBefore(inicio))
+                .toList();
+
+        if (locacoesPeriodo.isEmpty()) {
+            System.out.println("Nenhuma locação encontrada no período.");
+            return;
+        }
+
+        // 2. Map para acumular quantidade total por equipamento
+        Map<Equipamento, Integer> usoEquipamentos = new HashMap<>();
+
+        for (Locacao loc : locacoesPeriodo) {
+            for (Map.Entry<Equipamento, Integer> entry : loc.getEquipamentos().entrySet()) {
+                Equipamento eq = entry.getKey();
+                int qtd = entry.getValue();
+
+                usoEquipamentos.put(eq, usoEquipamentos.getOrDefault(eq, 0) + qtd);
+            }
+        }
+
+        // 3. Ordenar por quantidade utilizada (decrescente)
+        List<Map.Entry<Equipamento, Integer>> ranking = usoEquipamentos.entrySet()
+                .stream()
+                .sorted((a, b) -> b.getValue() - a.getValue())
+                .toList();
+
+        // 4. Imprimir resultado
+        System.out.println("\nEquipamentos mais usados no período:\n");
+
+        int pos = 1;
+        for (Map.Entry<Equipamento, Integer> entry : ranking) {
+            Equipamento eq = entry.getKey();
+            int qtd = entry.getValue();
+            long locacoesComEq = locacoesPeriodo.stream()
+                    .filter(l -> l.getEquipamentos().containsKey(eq))
+                    .count();
+
+            System.out.printf("%d) %s — %d unidades — %d locações\n",
+                    pos++, eq.getNome(), qtd, locacoesComEq);
+        }
+    }
+    private boolean intersecta(LocalDateTime aInicio, LocalDateTime aFim,
+                               LocalDateTime bInicio, LocalDateTime bFim) {
+        return !aInicio.isAfter(bFim) && !aFim.isBefore(bInicio);
+    }
+
+    public void gerarRelatorioClientesMaisAtivos(LocalDateTime inicio, LocalDateTime fim) {
+
+        Map<String, Integer> contadorClientes = new HashMap<>();
+
+        // ---- RESERVAS ----
+        for (Reserva reserva : reservaService.getReservas()) {
+            if (intersecta(reserva.getInicio(), reserva.getFim(), inicio, fim)) {
+
+                String cpf = reserva.getCliente().getDocumento();
+                contadorClientes.put(cpf, contadorClientes.getOrDefault(cpf, 0) + 1);
+            }
+        }
+
+        // ---- LOCAÇÕES ----
+        for (Locacao locacao : locacaoService.getLocacoes()) {
+            if (intersecta(locacao.getInicio(), locacao.getFim(), inicio, fim)) {
+
+                String cpf = locacao.getCliente().getDocumento();
+                contadorClientes.put(cpf, contadorClientes.getOrDefault(cpf, 0) + 1);
+            }
+        }
+
+        if (contadorClientes.isEmpty()) {
+            System.out.println("Nenhuma atividade encontrada no período.");
+            return;
+        }
+
+        List<Map.Entry<String, Integer>> ranking = new ArrayList<>(contadorClientes.entrySet());
+        ranking.sort((a, b) -> b.getValue().compareTo(a.getValue()));
+
+        System.out.println("\n===== CLIENTES MAIS ATIVOS =====");
+        for (Map.Entry<String, Integer> entry : ranking) {
+            System.out.println("Cliente: " + entry.getKey() + " → " + entry.getValue() + " atividades");
+        }
+    }
+
+
+
+
 
 
 

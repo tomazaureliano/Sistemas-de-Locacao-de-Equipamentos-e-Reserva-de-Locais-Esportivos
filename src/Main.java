@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import exceptions.EquipamentoManutencao;
 import exceptions.EstoqueInsuficiente;
 import model.*;
 import service.*;
@@ -53,7 +54,7 @@ public class Main {
         try {
             locacaoService.criarLocacao(Locacao1);
             long valor = locacaoService.valorLocacao(Locacao1);
-        } catch (EstoqueInsuficiente e) {
+        } catch (EstoqueInsuficiente | EquipamentoManutencao e) {
             System.out.println("Erro ao criar locação: " + e.getMessage());
         }
 
@@ -63,5 +64,13 @@ public class Main {
         //implementei a reserva de locais sem equipamentos
         //comecei a implementar os relatorios
         relatorioService.listarReservasPorCliente("123.456.789-00");
+        equipamentosLocacao.forEach((equip, qtd) -> {
+            System.out.println("Equipamento: " + equip.getNome());
+            System.out.println("Condição: " + equip.getCondicao());
+        });
+        relatorioService.relatorioEquipamentosMaisUsados(LocalDateTime.now(), LocalDateTime.now().plusDays(5));
+        relatorioService.gerarRelatorioClientesMaisAtivos(LocalDateTime.now(), LocalDateTime.now().plusDays(5));
     }
+
+
 }

@@ -23,7 +23,10 @@ public class Locacao {
         this.funcionario = funcionario;
         this.equipamentos = equipamentos;
         StatusLocacao status = StatusLocacao.LOCADO;
-
+        for (Map.Entry<Equipamento, Integer> entry : equipamentos.entrySet()) {
+            Equipamento equip = entry.getKey();
+            equip.setCondicao(Equipamento.Condicao.EMUSO);
+        }
     }
 
     public LocalDateTime getInicio() {

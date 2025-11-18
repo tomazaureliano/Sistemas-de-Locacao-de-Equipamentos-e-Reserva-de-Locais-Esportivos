@@ -1,5 +1,6 @@
 package service;
 
+import exceptions.EquipamentoManutencao;
 import model.Equipamento;
 import model.Locacao;
 import exceptions.EstoqueInsuficiente;
@@ -16,7 +17,7 @@ public class LocacaoService {
 
     // Criar locação já valida estoque e registra saída
     public Locacao criarLocacao(Locacao novaLocacao)
-            throws EstoqueInsuficiente {
+            throws EstoqueInsuficiente, EquipamentoManutencao {
 
         // 1. verifica estoque e reserva
         estoqueService.reservar(novaLocacao.getEquipamentos());

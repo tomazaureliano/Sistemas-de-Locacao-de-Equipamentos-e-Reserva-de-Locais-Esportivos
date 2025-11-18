@@ -1,5 +1,6 @@
 package service;
 
+import exceptions.EquipamentoManutencao;
 import exceptions.EstoqueInsuficiente;
 import model.Equipamento;
 import model.MovimentacaoEstoque;
@@ -14,7 +15,7 @@ public class EstoqueService {
     private List<MovimentacaoEstoque> historico = new ArrayList<>();
 
     // Saída de equipamento para uma reserva
-    public void reservar(Map<Equipamento, Integer> itens) throws EstoqueInsuficiente {
+    public void reservar(Map<Equipamento, Integer> itens) throws EstoqueInsuficiente, EquipamentoManutencao {
 
         for (Map.Entry<Equipamento, Integer> entry : itens.entrySet()) {
             Equipamento eq = entry.getKey();
@@ -25,6 +26,9 @@ public class EstoqueService {
                         "Estoque insuficiente para " + eq.getNome() +
                                 ". Disponível: " + eq.getQuantidadeDisponivel()
                 );
+            }
+            if(eq.getCondicao() == Equipamento.Condicao.MANUTENCAO){
+                throw new EquipamentoManutencao("Equipamento " + eq.getNome() + "em manutenção");
             }
 
             eq.setQuantidadeDisponivel(eq.getQuantidadeDisponivel() - quantidadeSolicitada);
