@@ -49,52 +49,5 @@ REQ23: Não permitir a reserva de local acima da capacidade máxima cadastrada.
 REQ24: Não permitir reserva de equipamentos em quantidade superior ao estoque disponível.
 REQ25: Bloquear reservas e empréstimos para clientes com pendências de devolução ou pagamento.
 REQ26: Apenas funcionários autorizados podem registrar manutenção em equipamentos e locais.
-Estrutura de Diretórios
-About
-Locação de equipamento esportivo
 
-Resources
- Readme
- Activity
-Stars
- 0 stars
-Watchers
- 0 watching
-Forks
- 3 forks
-Report repository
-Releases
-No releases published
-Create a new release
-Packages
-No packages published
-Publish your first package
-Contributors
-5
-@tomazaureliano
-@eduardasouzaa021-a
-@Alineoliveirab
-@Anielycarlaf
-@lauralxra
-Languages
-Java
-100.0%
-Suggested workflows
-Based on your tech stack
-Java with Gradle logo
-Java with Gradle
-Build and test a Java project using a Gradle wrapper script.
-Publish Java Package with Maven logo
-Publish Java Package with Maven
-Build a Java Package using Maven and publish to GitHub Packages.
-Java with Ant logo
-Java with Ant
-Build and test a Java project with Apache Ant.
-More workflows
-Footer
-© 2025 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
+
