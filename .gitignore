@@ -1,29 +1,12 @@
-### IntelliJ IDEA ###
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+# Ignorar arquivos de compilação do Maven
+target/
 
-### Eclipse ###
-.apt_generated
+# Ignorar arquivos específicos do Eclipse (Opcional, mas recomendado para projetos compartilhados)
+.settings/
 .classpath
-.factorypath
 .project
-.settings
-.springBeans
-.sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
+# Ignorar arquivos do sistema operacional
 .DS_Store
+Thumbs.db
