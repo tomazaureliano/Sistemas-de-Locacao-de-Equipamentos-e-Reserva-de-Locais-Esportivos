@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="899.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lauralima.ClientesController">
+   <children>
+      <Pane prefHeight="570.0" prefWidth="214.0">
+         <children>
+            <ImageView fitHeight="570.0" fitWidth="1162.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="https://img.freepik.com/fotos-premium/diversidade-de-condicionamento-fisico-e-retrato-de-pessoas-na-academia-para-suporte-ao-trabalho-em-equipe-e-treino-motivacao-coaching-e-saude-com-amigos-treinando-no-centro-esportivo-para-resistencia-cardiovascular-e-desafio-de-bem-estar_590464-130784.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="VoltarPAraMenu" layoutX="33.0" layoutY="14.0" mnemonicParsing="false" onAction="#VoltarParaMenu" style="-fx-background-color: null;" text="Menu" textFill="#fffefe">
+               <effect>
+                  <Glow level="1.0">
+                     <input>
+                        <DropShadow spread="0.39" />
+                     </input>
+                  </Glow>
+               </effect>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Pane layoutX="186.0" prefHeight="570.0" prefWidth="683.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="580.0" opacity="0.42" stroke="BLACK" strokeType="INSIDE" width="724.0" />
+                  <Text fill="WHITE" layoutX="186.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciar Clientes">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="28.0" />
+                     </font>
+                     <effect>
+                        <DropShadow spread="0.14">
+                           <input>
+                              <Glow level="1.0" />
+                           </input>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fill="WHITE" layoutX="606.0" layoutY="543.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORTELLI">
+                     <font>
+                        <Font name="Copperplate Gothic Bold" size="14.0" />
+                     </font>
+                     <effect>
+                        <DropShadow spread="0.14">
+                           <input>
+                              <Glow level="1.0" />
+                           </input>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <TextField fx:id="txtNomedoCliente" layoutX="14.0" layoutY="63.0" prefHeight="25.0" prefWidth="354.0" promptText="Nome" />
+                  <TextField fx:id="txtCpf" layoutX="14.0" layoutY="97.0" prefHeight="25.0" prefWidth="252.0" promptText="cpf" />
+                  <TextField fx:id="txtEmail" layoutX="278.0" layoutY="97.0" prefHeight="25.0" prefWidth="299.0" promptText="email" />
+                  <Button fx:id="OnBtnNovoCliente" layoutX="606.0" layoutY="85.0" mnemonicParsing="false" onAction="#CadastrarNovoCliente" text="cadastrar" />
+                  <TextField fx:id="txtTelefone" layoutX="387.0" layoutY="63.0" prefHeight="25.0" prefWidth="191.0" promptText="Telefone" />
+                  <Button fx:id="OnBtnHistoricoDeReservas" layoutX="14.0" layoutY="498.0" mnemonicParsing="false" onAction="#HistoricodeReservasEqui" text="Histórico" />
+                  <Button fx:id="OnbtnAtualizar" layoutX="94.0" layoutY="498.0" mnemonicParsing="false" onAction="#AtualizarDados" text="Atualizar" />
+                  <Button fx:id="OnBtnRemoverClientes" layoutX="168.0" layoutY="498.0" mnemonicParsing="false" onAction="#RemoverClientes" text="Remover Cliente" />
+                  <Button fx:id="OnBtnPesquisar" layoutX="288.0" layoutY="498.0" mnemonicParsing="false" onAction="#PesquisarClientes" text="Pesquisar" />
+                  <TableView fx:id="tabeladeClientes" layoutX="14.0" layoutY="153.0" prefHeight="319.0" prefWidth="650.0">
+                    <columns>
+                      <TableColumn fx:id="NomeCliente" prefWidth="382.3999481201172" text="Nome" />
+                      <TableColumn fx:id="cpfdoCliente" prefWidth="265.60003662109375" text="cpf" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</HBox>

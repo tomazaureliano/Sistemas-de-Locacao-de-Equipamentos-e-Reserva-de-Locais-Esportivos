@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="871.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lauralima.EquipamentosController">
+   <children>
+      <Pane prefHeight="550.0" prefWidth="230.0">
+         <children>
+            <ImageView fitHeight="668.0" fitWidth="870.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="https://img.freepik.com/fotos-premium/uma-academia-com-uma-parede-preta-e-um-fundo-preto-que-diz-equipamentos-de-ginastica_876956-994.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="OnBtnVoltarParaMenu" layoutX="44.0" layoutY="31.0" mnemonicParsing="false" onAction="#VoltarPAraMenu" style="-fx-background-color: null;" text="Menu" textFill="WHITE">
+               <effect>
+                  <Glow level="1.0">
+                     <input>
+                        <DropShadow height="42.06" radius="19.36" spread="0.18" width="37.38" />
+                     </input>
+                  </Glow>
+               </effect>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane prefHeight="654.0" prefWidth="678.0">
+         <children>
+            <Text fill="WHITE" layoutX="92.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gerenciar Equipamentos">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="28.0" />
+               </font>
+               <effect>
+                  <Glow level="1.0">
+                     <input>
+                        <DropShadow height="30.36" radius="13.51" spread="0.11" width="25.68" />
+                     </input>
+                  </Glow>
+               </effect>
+            </Text>
+            <Text fill="WHITE" layoutX="533.0" layoutY="618.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORTELLI">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="13.0" />
+               </font>
+               <effect>
+                  <Glow level="1.0">
+                     <input>
+                        <DropShadow height="30.36" radius="13.51" spread="0.11" width="25.68" />
+                     </input>
+                  </Glow>
+               </effect>
+            </Text>
+            <TextField fx:id="txtNomeDoEquipamento" layoutX="66.0" layoutY="85.0" prefHeight="25.0" prefWidth="211.0" promptText="Nome" />
+            <TextField fx:id="txtTipodoEquipamento" layoutX="301.0" layoutY="85.0" prefHeight="25.0" prefWidth="211.0" promptText="Tipo" />
+            <TextField fx:id="txtQuantidade" layoutX="66.0" layoutY="123.0" prefHeight="25.0" prefWidth="211.0" promptText="Quantidade" />
+            <TextField fx:id="txtValordoEqui" layoutX="301.0" layoutY="123.0" prefHeight="25.0" prefWidth="211.0" promptText="valor" />
+            <Button fx:id="OnBtnCadastrarNovoEquipamento" layoutX="548.0" layoutY="98.0" mnemonicParsing="false" onAction="#CadastrarNovoEquipamento" text="Cadastrar" />
+            <TreeTableView fx:id="TabeladeVisualizacao" layoutX="66.0" layoutY="174.0" prefHeight="402.0" prefWidth="558.0">
+              <columns>
+                <TreeTableColumn fx:id="Equipamento" prefWidth="288.80003356933594" text="Equipamento" />
+                <TreeTableColumn fx:id="quantidade" minWidth="0.0" prefWidth="120.7999267578125" text="Quantidade" />
+                  <TreeTableColumn fx:id="valor1" minWidth="4.0" prefWidth="73.59991455078125" sortType="DESCENDING" text="Valor" />
+                  <TreeTableColumn fx:id="condicaodoEquipamento" prefWidth="75.2000732421875" text="Condição" />
+              </columns>
+            </TreeTableView>
+            <Button fx:id="OnBtnAtualizarinformacoes" layoutX="66.0" layoutY="594.0" mnemonicParsing="false" onAction="#Atualizar" text="Atualizar" />
+            <Button fx:id="OnBtnRemoverequipamentos" layoutX="140.0" layoutY="594.0" mnemonicParsing="false" onAction="#RemoverEquipamentos" text="Remover" />
+            <Button fx:id="OnBtnPesquisar" layoutX="213.0" layoutY="594.0" mnemonicParsing="false" onAction="#PesquisarEquipamentos" text="Pesquisar" />
+            <Button fx:id="OnBtnEnviarParaManutencao" layoutX="289.0" layoutY="594.0" mnemonicParsing="false" onAction="#EnviarParaManutencao" text="Enviar para Manutenção" />
+         </children>
+      </Pane>
+   </children>
+</HBox>

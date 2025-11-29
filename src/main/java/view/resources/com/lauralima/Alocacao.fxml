@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="742.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lauralima.AlocacaoController">
+   <children>
+      <Pane prefHeight="611.0" prefWidth="170.0">
+         <children>
+            <ImageView fitHeight="756.0" fitWidth="1134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="https://img.freepik.com/fotos-premium/uma-academia-com-parede-preta-e-luz-vermelha-no-teto_876956-1214.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="OnBtnVoltarParaMenu" layoutX="33.0" layoutY="31.0" mnemonicParsing="false" onAction="#VoltarParaMenu" style="-fx-background-color: null;" text="Menu" textFill="WHITE">
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Text fill="#c70202" layoutX="11.0" layoutY="708.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORTELLI" textAlignment="CENTER" wrappingWidth="147.0000000000001">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="11.0" />
+               </font>
+               <effect>
+                  <DropShadow height="39.72" radius="19.945" spread="0.57" width="42.06">
+                     <input>
+                        <Glow level="1.0" />
+                     </input>
+                  </DropShadow>
+               </effect>
+            </Text>
+         </children>
+      </Pane>
+      <Pane prefHeight="611.0" prefWidth="757.0">
+         <children>
+            <Text fill="WHITE" layoutX="149.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="locação de Equipamentos" textAlignment="CENTER" wrappingWidth="485.8929443359375">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="26.0" />
+               </font>
+               <effect>
+                  <DropShadow height="37.38" radius="19.36" spread="0.57" width="42.06" />
+               </effect>
+            </Text>
+            <ChoiceBox fx:id="ChoiceEscolherClientes" layoutX="111.0" layoutY="159.0" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: white;" />
+            <Label layoutX="8.0" layoutY="163.0" text="Cliente" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <effect>
+                  <DropShadow height="47.37" radius="34.2975" spread="0.7" width="91.82" />
+               </effect>
+            </Label>
+            <Label layoutX="11.0" layoutY="206.0" text="Data" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <effect>
+                  <DropShadow height="47.37" radius="34.2975" spread="0.7" width="91.82" />
+               </effect>
+            </Label>
+            <DatePicker fx:id="EscolherData" layoutX="111.0" layoutY="207.0" prefHeight="25.0" prefWidth="159.0" />
+            <Label layoutX="12.0" layoutY="244.0" text="Horário" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <effect>
+                  <DropShadow height="47.37" radius="34.2975" spread="0.7" width="91.82" />
+               </effect>
+            </Label>
+            <Spinner fx:id="SpinnerHora" layoutX="111.0" layoutY="245.0" prefHeight="25.0" prefWidth="70.0" />
+            <Spinner fx:id="SpinnerMinutos" layoutX="200.0" layoutY="245.0" prefHeight="25.0" prefWidth="70.0" />
+            <Label layoutX="12.0" layoutY="287.0" text="Duração (h)" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <effect>
+                  <DropShadow height="47.37" radius="34.2975" spread="0.7" width="91.82" />
+               </effect>
+            </Label>
+            <Spinner fx:id="SpinnerDuracao" layoutX="121.0" layoutY="287.0" prefHeight="25.0" prefWidth="147.0" />
+            <Label layoutX="321.0" layoutY="162.0" text="Adicionar Itens ao Carrinho" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <effect>
+                  <DropShadow height="47.37" radius="34.2975" spread="0.7" width="91.82" />
+               </effect>
+            </Label>
+            <ChoiceBox fx:id="ChoicEcolherEequipamento" layoutX="314.0" layoutY="193.0" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: white;" />
+            <Label layoutX="488.0" layoutY="197.0" text="Quantidade" textFill="WHITE" />
+            <Spinner fx:id="EscolherQUanrDeEquipamentos" layoutX="559.0" layoutY="194.0" prefHeight="25.0" prefWidth="70.0" />
+            <ListView layoutX="314.0" layoutY="238.0" prefHeight="428.0" prefWidth="433.0" />
+            <Button fx:id="AdicionarMaisItens" layoutX="666.0" layoutY="194.0" mnemonicParsing="false" onAction="#AdicionarMaisItens" text="+ Adicionar" />
+            <TableView fx:id="TabelaIntesEquipamentos" layoutX="331.0" layoutY="263.0" onSort="#AdicionarItens" prefHeight="258.0" prefWidth="400.0">
+              <columns>
+                <TableColumn fx:id="TabeladeItens" prefWidth="306.4000244140625" text="Equipamentos" />
+                <TableColumn fx:id="TabelaQuantdeItens" prefWidth="91.2000732421875" text="Quantidade" />
+              </columns>
+            </TableView>
+            <Button fx:id="EmprestarItens" layoutX="342.0" layoutY="626.0" mnemonicParsing="false" onAction="#EmprestarEquipamento" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: Green;" text="Emprestar" textFill="WHITE" />
+            <Button fx:id="LocarParaUmLocal" layoutX="542.0" layoutY="626.0" mnemonicParsing="false" onAction="#LocarEquipamentos" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: green;" text="Locar Equipamento" textFill="WHITE" />
+            <ChoiceBox fx:id="EscolherLocalLocacao" layoutX="118.0" layoutY="337.0" prefHeight="25.0" prefWidth="147.0" style="-fx-background-color: white;" />
+            <Label layoutX="15.0" layoutY="341.0" text="Local" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <effect>
+                  <DropShadow height="47.37" radius="34.2975" spread="0.7" width="91.82" />
+               </effect>
+            </Label>
+            <Button fx:id="removerItenSelecionado" layoutX="442.0" layoutY="533.0" mnemonicParsing="false" onAction="#EmprestarEquipamento" prefHeight="25.0" prefWidth="177.0" style="-fx-background-color: #c70202;" text="Remover Selecionado" textFill="WHITE" />
+         </children>
+      </Pane>
+   </children>
+</HBox>

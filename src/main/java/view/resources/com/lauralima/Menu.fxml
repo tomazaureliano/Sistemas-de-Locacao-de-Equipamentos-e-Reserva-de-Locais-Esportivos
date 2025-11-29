@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="932.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lauralima.MenuController">
+   <children>
+      <Pane prefHeight="526.0" prefWidth="318.0">
+         <children>
+            <ImageView fitHeight="631.0" fitWidth="995.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="https://static1.minhavida.com.br/articles/05/a5/ad/d8/pessoas-fazendo-exercicios-na-academia-orig-1.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="OnBtnReserva" layoutX="-18.0" layoutY="40.0" mnemonicParsing="false" onAction="#IrParaReserva" prefHeight="25.0" prefWidth="192.0" style="-fx-background-radius: 50;" text="Reserva" textFill="#c70202">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="134.46" radius="66.4375" spread="0.36" width="133.29" />
+               </effect></Button>
+            <Button fx:id="OnBtnAlocacao" layoutX="-23.0" layoutY="88.0" mnemonicParsing="false" onAction="#IrparaAlocacao" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 50;" text="Locação" textFill="#c70202">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="80.97" radius="36.69" spread="0.37" width="67.79" />
+               </effect></Button>
+            <Button fx:id="OnBtnGerenciarClientes" layoutX="-15.0" layoutY="137.0" mnemonicParsing="false" onAction="#IrParaClientes" prefHeight="25.0" prefWidth="192.0" style="-fx-background-radius: 50;" text="Clientes" textFill="#c70202">
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="119.57" radius="59.205" spread="0.55" width="119.25" />
+               </effect></Button>
+            <Button fx:id="OnBtnGerenciarEquipamentos" layoutX="-23.0" layoutY="185.0" mnemonicParsing="false" onAction="#IrParaEquipamentos" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 50;" text="Equipamentos" textFill="#c70202">
+               <effect>
+                  <DropShadow height="102.88" radius="53.44" spread="0.52" width="112.88" />
+               </effect></Button>
+            <Button fx:id="OnBtnGerenciarLocais" layoutX="-23.0" layoutY="238.0" mnemonicParsing="false" onAction="#IrparaLocais" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 50;" text="Locais" textFill="#c70202">
+               <effect>
+                  <DropShadow height="126.92" radius="63.38250000000001" spread="0.61" width="128.61" />
+               </effect></Button>
+            <Button fx:id="OnBtnGerenciarRelatorios" layoutX="-19.0" layoutY="293.0" mnemonicParsing="false" onAction="#IrParaRelatorios" prefHeight="25.0" prefWidth="200.0" style="-fx-background-radius: 50;" text="Relatórios" textFill="#c70202">
+               <effect>
+                  <DropShadow height="68.43" radius="41.9025" spread="0.45" width="101.18" />
+               </effect>
+            </Button>
+            <Text fill="#c70202" layoutX="397.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SPORTELLI">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="72.0" />
+               </font>
+               <effect>
+                  <Glow level="1.0" />
+               </effect>
+            </Text>
+         </children>
+      </Pane>
+      <Pane prefHeight="526.0" prefWidth="345.0" />
+   </children>
+</HBox>
